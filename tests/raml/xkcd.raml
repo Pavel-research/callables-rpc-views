@@ -1,0 +1,14 @@
+#%RAML 1.0
+baseUri: https://xkcd.com/
+title: XKCD
+types:
+ Comic:
+   properties:
+    title?: string
+    alt?: string
+/info.0.json:
+  get:
+   responses:
+     200:
+       body:
+        application/json: Comic

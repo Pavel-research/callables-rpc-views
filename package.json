@@ -1,0 +1,36 @@
+{
+  "name": "callables-rpc-views",
+  "version": "0.0.21",
+  "private": false,
+  "scripts": {
+    "compile": "rimraf -rf dist/ && ./node_modules/typescript/bin/tsc"
+  },
+  "main": "./dist/src/main.js",
+  "typings": "./dist/src/main.d.ts",
+  "devDependencies": {
+    "typescript": "^2.0.0",
+    "dev-env-installer": "0.0.5",
+    "rimraf": "*",
+    "mocha": "^2.2.1",
+    "typedoc": "^0.3.12",
+    "chai": "^3.5.0",
+    "@types/mocha": "*",
+    "@types/chai": "*",
+    "istanbul": "^0.4.5",
+    "webpack": "^2.5.1",
+    "raml-typesystem-light": "0.0.21",
+    "raml-1-parser": "^1.1.21",
+    "json2raml-loader": "0.0.22"
+  },
+  "directories": [
+    "dist"
+  ],
+  "dependencies": {
+    "@types/node": "^6.0.55",
+    "@types/superagent": "^2.0.37",
+    "raml-typesystem-scopes": "0.0.21",
+    "raml-typesystem-shapes": "0.0.21",
+    "raml1-domain-model": "^0.0.22",
+    "superagent": "^3.5.2"
+  }
+}
