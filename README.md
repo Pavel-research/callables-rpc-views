@@ -17,7 +17,8 @@ Currently In case if endpoint has multiple request bodies we assume that these b
 
 *Response mapping:*
 
-We map response body into return type of the function.
+We map response body into return type of the function. 
+
          
 ### Limitations
          
