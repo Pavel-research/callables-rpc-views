@@ -1,6 +1,6 @@
 {
   "name": "callables-rpc-views",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "private": false,
   "scripts": {
     "compile": "rimraf -rf dist/ && ./node_modules/typescript/bin/tsc"

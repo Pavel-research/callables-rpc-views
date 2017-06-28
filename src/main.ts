@@ -114,6 +114,8 @@ export interface CallableFunction {
 
     securedBy(): rti.SecuredBy[]
 
+    isSafe(): boolean
+
     validateParameters(parameters: {[pname: string]: any}): ValidationReport
 }
 
@@ -188,6 +190,9 @@ class VirtualCallable implements CallableFunction {
     constructor(private  _c: CallableFunction, private viewDescription: ViewDescription) {
 
     }
+    isSafe(){
+        return this._c.isSafe();
+    }
 
     id() {
         return this.viewDescription.id
@@ -246,6 +251,10 @@ class CallableImpl implements CallableFunction {
 
     constructor(private _mod: Module, private method: rti.Method) {
 
+    }
+
+    isSafe(){
+        return this.method.method().toLowerCase()=="get"||this.method.method().toLowerCase()=="options"
     }
 
     _id: string;
