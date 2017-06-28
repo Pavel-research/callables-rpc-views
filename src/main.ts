@@ -106,6 +106,10 @@ export interface CallableFunction {
 
     returnType(): Type
 
+    annotation(n:string):any
+
+    hasAnnotation(n:string): boolean
+
     annotations(): Annotation[]
 
     call(parameters: {[pname: string]: any}): Promise<any>
@@ -146,6 +150,9 @@ export class BasicHTTPModule implements Module {
 
     securitySchemas(): rti.SecuritySchemeDefinition[] {
         return this.api.securitySchemes();
+    }
+    annotation(n:string){
+        return this.api.annotation(n)
     }
 
     annotations() {
@@ -194,6 +201,12 @@ class VirtualCallable implements CallableFunction {
         return this._c.isSafe();
     }
 
+    annotation(n:string){
+        return this._c.annotation(n);
+    }
+    hasAnnotation(n:string){
+        return this._c.hasAnnotation(n);
+    }
     id() {
         return this.viewDescription.id
     }
@@ -261,6 +274,19 @@ class CallableImpl implements CallableFunction {
 
     securedBy(): rti.SecuredBy[] {
         return this.method.securedBy();
+    }
+
+    annotation(n:string){
+        return this.method.annotation(n);
+    }
+    hasAnnotation(n:string){
+        var has=false;
+        this.annotations().forEach(x=>{
+            if (x.name()==n||x.name().endsWith("."+n)){
+                has=true;
+            }
+        })
+        return has;
     }
 
     validateParameters(parameters: {[pname: string]: any}): ValidationReport {
