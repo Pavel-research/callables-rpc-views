@@ -72,14 +72,12 @@ export class RequestExecutor {
                 rr.auth(r.auth.user, r.auth.password);
             }
             rr.end((err: any, res: request.Response) => {
-                if (res) {
-                    var body = res.body;
-                    resolve(body);
+                if (err) {
+                    reject(err)
                 }
                 else {
-                    if (err) {
-                        reject(err)
-                    }
+                    var body = res.body;
+                    resolve(body);
                 }
             })
         });
