@@ -472,9 +472,9 @@ export function normalizeType(t: Type): Type {
                 if (metaInformationKind == rti.types.MetaInformationKind.Description) {
                     return;
                 }
-                if (metaInformationKind == rti.types.MetaInformationKind.Annotation) {
-                    return;
-                }
+                // if (metaInformationKind == rti.types.MetaInformationKind.Annotation) {
+                //     return;
+                // }
                 if (metaInformationKind == rti.types.MetaInformationKind.Example) {
                     return;
                 }
