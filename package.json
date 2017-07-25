@@ -20,7 +20,7 @@
     "webpack": "^2.5.1",
     "raml-typesystem-light": "0.0.21",
     "raml-1-parser": "^1.1.21",
-    "json2raml-loader": "0.0.22"
+    "json2raml-loader": "0.0.24"
   },
   "directories": [
     "dist"
